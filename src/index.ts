@@ -99,6 +99,27 @@ const updateMap = (data: InfectedEntry[]) => {
   
   };
 
+
+  const circles = svg.selectAll("circle");
+
+  circles
+    .data(latLongCommunities)
+    .enter()
+    .append("circle")
+    .attr("class", "affected-marker")
+    .attr("r", function(d) {
+      console.log("caluclate");
+      return calculateRadiusBasedOnAffectedCases(d.name);
+    })
+    .attr("cx", d => aProjection([d.long, d.lat])[0])
+    .attr("cy", d => aProjection([d.long, d.lat])[1])
+
+    .merge(circles as any)
+    .attr("r", function(d) {
+      return calculateRadiusBasedOnAffectedCases(d.name);
+    });
+
+
   svg
     .selectAll("circle")
         .data(latLongCommunities)   
@@ -110,7 +131,14 @@ const updateMap = (data: InfectedEntry[]) => {
           return calculateRadiusBasedOnAffectedCases(d.name)
         })
         .attr("cx", d => aProjection([d.long, d.lat])[0])
-        .attr("cy", d => aProjection([d.long, d.lat])[1]);
+        .attr("cy", d => aProjection([d.long, d.lat])[1])
+
+        .merge(circles as any)
+        .transition()
+        .duration(500)
+        .attr("r", function(d) {
+          return calculateRadiusBasedOnAffectedCases(d.name);
+    });
 
 
   };
