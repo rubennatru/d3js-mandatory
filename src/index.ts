@@ -11,16 +11,12 @@ import {
   } from "./stats";
 
 
-
-
-
 const svg = d3
   .select("body")
   .append("svg")
   .attr("width", 1024)
   .attr("height", 800)
   .attr("style", "background-color: #FBFAF0");
-
 
 
 const aProjection = d3Composite
@@ -45,17 +41,6 @@ svg
   // data loaded from json file
   .attr("d", geoPath as any);
 
-
-/*svg
-  .selectAll("circle")
-  .data(latLongCommunities)
-  .enter()
-  .append("circle")
-  .attr("class", "affected-marker")
-  .attr("r", d => calculateRadiusBasedOnAffectedCases(d.name))
-  .attr("cx", d => aProjection([d.long, d.lat])[0])
-  .attr("cy", d => aProjection([d.long, d.lat])[1]);
-*/
 
 // Buttons 
 
@@ -89,7 +74,8 @@ const updateMap = (data: InfectedEntry[]) => {
   const affectedRadiusScale = d3
     .scaleLinear()
     .domain([0, maxAffected])
-    .range([0, 50]); // 50 pixel max radius, we could calculate it relative to width and height
+    .clamp(true)
+    .range([5, 45]); // 50 pixel max radius, we could calculate it relative to width and height
   
   
   const calculateRadiusBasedOnAffectedCases = (comunidad: string) => {  
@@ -115,32 +101,11 @@ const updateMap = (data: InfectedEntry[]) => {
     .attr("cy", d => aProjection([d.long, d.lat])[1])
 
     .merge(circles as any)
+    .transition()
+    .duration(500)
     .attr("r", function(d) {
       return calculateRadiusBasedOnAffectedCases(d.name);
     });
-
-
-  svg
-    .selectAll("circle")
-        .data(latLongCommunities)   
-        .enter()
-        .append("circle")
-        .attr("class", "affected-marker")
-        .attr("r", function(d){
-          console.log("caluclate")
-          return calculateRadiusBasedOnAffectedCases(d.name)
-        })
-        .attr("cx", d => aProjection([d.long, d.lat])[0])
-        .attr("cy", d => aProjection([d.long, d.lat])[1])
-
-        .merge(circles as any)
-        .transition()
-        .duration(500)
-        .attr("r", function(d) {
-          return calculateRadiusBasedOnAffectedCases(d.name);
-    });
-
-
   };
 
 updateMap(base_stats);
