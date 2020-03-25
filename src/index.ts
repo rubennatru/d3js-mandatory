@@ -47,14 +47,12 @@ svg
 document
   .getElementById("initial")
   .addEventListener("click", function handleBaseResults() {
-    console.log("llega a update map");
     updateMap(base_stats);
   });
 
 document
   .getElementById("current")
   .addEventListener("click", function handleCurrentResults() {
-    console.log("llega a update map2");
     updateMap(current_stats);
   });  
 
@@ -62,8 +60,6 @@ document
 
   
 const updateMap = (data: InfectedEntry[]) => {
-
-  console.log("llegamos a la funcion");
 
   const maxAffected = data.reduce(
     (max, item) => (item.value > max ? item.value : max),
@@ -94,7 +90,6 @@ const updateMap = (data: InfectedEntry[]) => {
     .append("circle")
     .attr("class", "affected-marker")
     .attr("r", function(d) {
-      console.log("caluclate");
       return calculateRadiusBasedOnAffectedCases(d.name);
     })
     .attr("cx", d => aProjection([d.long, d.lat])[0])
