@@ -362,7 +362,20 @@ Now, We have the map working fine!!
                         <script src="./index.ts"></script>
                     </div>
             
+            ```Typescript _/src/index.ts_
             
+               document
+                 .getElementById("initial")
+                 .addEventListener("click", function handleBaseResults() {
+                   updateMap(base_stats);
+                 });
+
+               document
+                 .getElementById("current")
+                 .addEventListener("click", function handleCurrentResults() {
+                   updateMap(current_stats);
+                 }); 
+            ´´´
         
         *  Now Apply a good style to our project:
             
