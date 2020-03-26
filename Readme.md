@@ -1,4 +1,4 @@
-# Pinning locations + scale (Spain Map) + Update MapView (2 source data)
+## Pinning locations + scale (Spain Map) + Update MapView (2 source data)
 
 We want to develop a spanish map pointing the infected cases by covid19 (coronavirus) in all the spanish regions.
 For that we display something like this:
@@ -13,7 +13,7 @@ We have to face three topics here:
 
 
 
-# First Steps
+### First Step
 
 - Using the base from our friends of {Lemoncode} we will: 
 
@@ -67,7 +67,7 @@ const aProjection = d3Composite
 
 Now, We have the map working fine!!
 
-# Next Steps
+### Second Step
 
   - In order to draw our circles in each region we have to create one file with Regions and Coordinates:
   
@@ -190,7 +190,9 @@ Now, We have the map working fine!!
                 });
               };
             ´´´ 
-            
+ 
+### Second Step
+
       * We make a new file to read our values. But, as you can see bellow, we use an interface
         because we want to update our map with different data sources (2 data points in our case) 
             
@@ -349,8 +351,11 @@ Now, We have the map working fine!!
                   current_stats,
                   InfectedEntry
                 } from "./stats";
-        
-        * Print 2 buttons in our code, to select the different data:
+
+
+### Third Step
+
+   - Print 2 buttons in our code, to select the different data:
             ``` Typescript _/src/index.html_
               
                   <body>
@@ -376,8 +381,9 @@ Now, We have the map working fine!!
                    updateMap(current_stats);
                  }); 
             ´´´
-        
-        *  Now Apply a good style to our project:
+   
+ ### Last Step  
+  -  Now Apply a good style to our project:
             
          ``` Typescript 
          
