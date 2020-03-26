@@ -67,7 +67,7 @@ const aProjection = d3Composite
 
 Now, We have the map working fine!!
 
-# Second Step
+# Next Steps
 
   - In order to draw our circles in each region we have to create one file with Regions and Coordinates:
   
