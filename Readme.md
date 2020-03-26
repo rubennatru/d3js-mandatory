@@ -3,7 +3,7 @@
 We want to develop a spanish map pointing the infected cases by covid19 (coronavirus) in all the spanish regions.
 For that we display something like this:
 
-![Spanish map - affected coronavirus](./content/spanish_covid19.png "Spanish affected coronavirus")
+![Spanish map - affected coronavirus](./content/interactive_map.webm "Spanish affected coronavirus")
 
 
 We have to face three topics here:
