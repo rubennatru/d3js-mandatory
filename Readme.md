@@ -1,4 +1,4 @@
-# Pinning locations + scale (Spain Map)
+# Pinning locations + scale (Spain Map) + Update MapView (2 source data)
 
 We want to develop a spanish map pointing the infected cases by covid19 (coronavirus) in all the spanish regions.
 For that we display something like this:
