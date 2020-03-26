@@ -199,7 +199,7 @@ Now, We have the map working fine!!
                       });
                 
       
-# Third Step
+### Third Step
 
    * We make a new file to read our values. But, as you can see bellow, we use an interface
      because we want to update our map with different data sources (2 data points in our case) 
