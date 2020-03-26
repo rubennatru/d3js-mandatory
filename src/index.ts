@@ -21,9 +21,7 @@ const svg = d3
 
 const aProjection = d3Composite
   .geoConicConformalSpain()
-  // Let's make the map bigger to fit in our resolution
   .scale(3300)
-  // Let's center the map
   .translate([500, 400]);
 
 
@@ -38,7 +36,6 @@ svg
   .enter()
   .append("path")
   .attr("class", "country")
-  // data loaded from json file
   .attr("d", geoPath as any);
 
 
@@ -71,7 +68,7 @@ const updateMap = (data: InfectedEntry[]) => {
     .scaleLinear()
     .domain([0, maxAffected])
     .clamp(true)
-    .range([5, 45]); // 50 pixel max radius, we could calculate it relative to width and height
+    .range([5, 45]);
   
   
   const calculateRadiusBasedOnAffectedCases = (comunidad: string) => {  
